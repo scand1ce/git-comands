@@ -6,3 +6,4 @@ urlpatterns =[
     path('', index),
     path('test/', test),
 ]
+
