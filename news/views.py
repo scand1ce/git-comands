@@ -8,10 +8,10 @@ def index(request):
 
     context = {
         'news': news,
-        'title': 'LIST NEWS'
+        'title': 'Список новостей'
     }
 
-    return render(request, 'news/index.html', context)
+    return render(request, template_name='news/index.html', context=context)
 
 
 
