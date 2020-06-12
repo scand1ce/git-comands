@@ -11,6 +11,10 @@ class News(models.Model):
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True,
                                  blank=True, verbose_name='Категория')
 
+    def my_func(self):
+        pass
+        # return 'Hello from models'
+
     def __str__(self):
         return self.title
 
