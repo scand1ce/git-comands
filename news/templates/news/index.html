@@ -2,20 +2,20 @@
 
 
 {% block sidebar %}
-<div class="col-md-3">
+
     <div class="list-group">
         {%for item in categories%}
         <a href="{% url 'category' item.pk %}" class="list-group-item list-group-item-action">{{item.title}}</a>
         {%endfor%}
     </div>
-</div>
+
 {% endblock %}
 
 
 {% block content %}
-<div class="col-md-9">
+
     {%for item in news%}
-    <div class="card mb-3">
+
         <div class="card-header">
             Категория: <a href="{% url 'category' item.category.pk %}">{{item.category}}</a>
         </div>
@@ -34,9 +34,9 @@
         <div class="card-footer text-muted">
             Опубликовано {{item.created_at|timesince }} назад.
         </div>
-    </div>
+
     {%endfor%}
-</div>
+
 {% endblock %}
 
 
