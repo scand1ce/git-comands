@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 
+
+
 {% block sidebar %}
 
 {% include 'inc/_sidebar.html' %}
@@ -13,7 +15,7 @@
     {%for item in news%}
 
         <div class="card-header">
-            Категория: <a href="{% url 'category' item.category.pk %}">{{item.category}}</a>
+            Категория: <a href="{{ news_item.category.get_absolute_url }}">{{news_item.category}}</a>
         </div>
         <div class="card-body">
             <div class="media">
@@ -30,7 +32,7 @@
         <div class="card-footer text-muted">
             Опубликовано {{item.created_at|timesince }} назад.
         </div>
-
+        <br>
     {%endfor%}
 
 {% endblock %}

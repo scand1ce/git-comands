@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class News(models.Model):
@@ -11,9 +12,8 @@ class News(models.Model):
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True,
                                  blank=True, verbose_name='Категория')
 
-    def my_func(self):
-        pass
-        # return 'Hello from models'
+    '''def my_func(self):
+        return None'''
 
     def __str__(self):
         return self.title
@@ -27,6 +27,8 @@ class News(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=150, db_index=True,
                              verbose_name='Название категории', blank=True)
+    def get_absolute_url(self):
+        return reverse('category', kwargs={"category_id": self.pk})
 
     def __str__(self):
         return self.title
