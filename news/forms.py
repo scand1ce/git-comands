@@ -8,7 +8,7 @@ class NewsForm(forms.Form):
         "class": "form-control",
         "rows": 5
     }))
-    is_pablished = forms.BooleanField(label="Опубликовано")
-    category = forms.ModelChoiceField( empty_label="Выберите категорию", label="Категория",
-                                       queryset=Category.objects.all(),
+    #is_pablished = forms.BooleanField(label="Опубликовано", initial=True)
+    category = forms.ModelChoiceField(empty_label="Выберите категорию", label="Категория",
+                                      queryset=Category.objects.all(),
                                       widget=forms.Select(attrs={"class": "form-control"}))

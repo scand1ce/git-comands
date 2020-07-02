@@ -12,7 +12,6 @@ class News(models.Model):
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True,
                                  blank=True, verbose_name='Категория')
 
-
     def get_absolute_url(self):
         return reverse('view_news', kwargs={"news_id": self.pk})
 
@@ -35,10 +34,8 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('category', kwargs={"category_id": self.pk})
 
-
     def __str__(self):
         return self.title
-
 
     class Meta:
         verbose_name = 'КАТЕГОРИЯ'
